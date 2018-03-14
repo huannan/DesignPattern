@@ -14,7 +14,22 @@ package singleton;
  */
 public class Singleton3 {
 
-    private static Singleton3 sInstance = new Singleton3();
+    //类装载的时候就进行初始化
+    /*private static Singleton3 sInstance = new Singleton3();
+
+    private Singleton3() {
+    }
+
+    public static Singleton3 getInstance() {
+        return sInstance;
+    }*/
+
+    //另外一种饿汉模式的写法，在类初始化的时候才去初始化
+    private static Singleton3 sInstance = null;
+
+    static {
+        sInstance = new Singleton3();
+    }
 
     private Singleton3() {
     }
@@ -22,4 +37,5 @@ public class Singleton3 {
     public static Singleton3 getInstance() {
         return sInstance;
     }
+
 }
